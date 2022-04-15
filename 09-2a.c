@@ -87,11 +87,11 @@ int main()
     array[2] += 1;
   }
 
-  up(&mybuf, semid);
-
   printf
     ("Program 1 was spawn %d times, program 2 - %d times, total - %d times\n",
     array[0], array[1], array[2]);
+
+  up(&mybuf, semid);
 
   if (shmdt(array) < 0) {
     printf("Can't detach shared memory\n");
