@@ -76,10 +76,10 @@ int main() {
                 exit(-1);
             }
 
-			up(&mybuf, semid);
-			up(&mybuf, semid);
+	    up(&mybuf, semid);
+      	    up(&mybuf, semid);
 
-			wait(&mybuf, semid);
+	    wait(&mybuf, semid);
 
             size = read(fd[0], resstring, 14);
             if (size < 0) {
@@ -91,7 +91,7 @@ int main() {
         }
     } else {
         for (int i = 0; i < count; ++i) {
-			down(&mybuf, semid);
+	    down(&mybuf, semid);
 
             size = read(fd[0], resstring, 14);
 
@@ -109,7 +109,7 @@ int main() {
                 exit(-1);
             }
 
-			down(&mybuf, semid);
+	    down(&mybuf, semid);
         }
     }
 
