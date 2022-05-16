@@ -36,7 +36,7 @@ int main(void)
 
   /* Send information */
 
-  mybuf.mtype = 1;
+  mybuf.mtype = 2;
   mybuf.data = 0;
   mybuf.pid = 1;
   len = sizeof(mybuf) - sizeof(mybuf.mtype);
