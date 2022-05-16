@@ -122,12 +122,14 @@ int main(void)
 
     if (( len = msgrcv(msqid, (struct msgbuf *) &mybuf, maxlen, -2, 0)) < 0) {
       printf("Can\'t receive message from queue\n");
+      down();
       exit(-1);
     }
     
-    if (mybuf.pid == 1) {
+    if (mybuf.mtype == 2) {
       msgctl(msqid, IPC_RMID, (struct msqid_ds *) NULL);
       printf("Server was killed\n");
+      down();
       exit(0);
     }
 
